@@ -9,7 +9,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @TestConfiguration(proxyBeanMethods = false)
-public class TestYoutubeApplication {
+public class TestApplication {
 
 	@Bean
 	@ServiceConnection
@@ -24,7 +24,7 @@ public class TestYoutubeApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.from(YoutubeApplication::main).with(TestYoutubeApplication.class).run(args);
+		SpringApplication.from(Application::main).with(TestApplication.class).run(args);
 	}
 
 }
