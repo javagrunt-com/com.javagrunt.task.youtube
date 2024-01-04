@@ -1,7 +1,11 @@
 logging:
   level:
-    org.springframework.cloud.task: DEBUG
+    org.springframework.cloud.task: INFO
     
 spring:
   application:
     name: youtube-task
+  datasource:
+    url: "${DATASOURCE_URL:}"
+    username: "${DATASOURCE_USERNAME:}"
+    password: "${DATASOURCE_PASSWORD:}"
