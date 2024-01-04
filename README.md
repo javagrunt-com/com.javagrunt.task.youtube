@@ -18,6 +18,8 @@ A Spring Cloud Task that pulls information from YouTube
 
  ## Related Videos
 
+[![Live Stream - 4 January 2024](https://img.youtube.com/vi/QRc2ESjh8mc/0.jpg)](https://www.youtube.com/watch?v=QRc2ESjh8mc)
+
  <!-- MARKDOWN LINKS & IMAGES -->
  <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
  [forks-shield]: https://img.shields.io/github/forks/javagrunt-com/com.javagrunt.task.youtube.svg?style=for-the-badge
