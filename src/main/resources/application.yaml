@@ -9,3 +9,6 @@ spring:
     url: "${DATASOURCE_URL:}"
     username: "${DATASOURCE_USERNAME:}"
     password: "${DATASOURCE_PASSWORD:}"
+  sql:
+    init:
+      mode: always
