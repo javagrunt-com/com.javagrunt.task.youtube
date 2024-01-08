@@ -1,23 +1,26 @@
 [INFO] +- org.springframework.boot:spring-boot-starter-actuator:jar:3.2.1:compile
 [INFO] |  +- org.springframework.boot:spring-boot-starter:jar:3.2.1:compile
 [INFO] |  |  +- org.springframework.boot:spring-boot:jar:3.2.1:compile
-[INFO] |  |  |  \- org.springframework:spring-context:jar:6.1.2:compile
-[INFO] |  |  |     +- org.springframework:spring-aop:jar:6.1.2:compile
-[INFO] |  |  |     \- org.springframework:spring-expression:jar:6.1.2:compile
 [INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.2.1:compile
 [INFO] |  +- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:3.2.1:compile
 [INFO] |  |  +- org.springframework.boot:spring-boot-actuator:jar:3.2.1:compile
-[INFO] +- org.springframework.boot:spring-boot-starter-jdbc:jar:3.2.1:compile
-[INFO] |  \- org.springframework:spring-jdbc:jar:6.1.2:compile
-[INFO] |     +- org.springframework:spring-beans:jar:6.1.2:compile
-[INFO] |     \- org.springframework:spring-tx:jar:6.1.2:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-data-jdbc:jar:3.2.1:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:3.2.1:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:6.1.2:compile
+[INFO] |  \- org.springframework.data:spring-data-jdbc:jar:3.2.1:compile
+[INFO] |     +- org.springframework.data:spring-data-relational:jar:3.2.1:compile
+[INFO] |     +- org.springframework.data:spring-data-commons:jar:3.2.1:compile
+[INFO] |     +- org.springframework:spring-tx:jar:6.1.2:compile
+[INFO] |     +- org.springframework:spring-context:jar:6.1.2:compile
+[INFO] |     |  +- org.springframework:spring-aop:jar:6.1.2:compile
+[INFO] |     |  \- org.springframework:spring-expression:jar:6.1.2:compile
+[INFO] |     \- org.springframework:spring-beans:jar:6.1.2:compile
 [INFO] +- org.springframework.cloud:spring-cloud-starter-task:jar:3.1.0:compile
 [INFO] |  +- org.springframework.cloud:spring-cloud-task-core:jar:3.1.0:compile
 [INFO] |  |  +- org.springframework.cloud:spring-cloud-deployer-autoconfigure:jar:2.9.1:compile
 [INFO] |  |  +- org.springframework.cloud:spring-cloud-deployer-resource-support:jar:2.9.1:compile
-[INFO] |  |  +- org.springframework.batch:spring-batch-infrastructure:jar:5.1.0:compile
-[INFO] |  |  |  \- org.springframework.retry:spring-retry:jar:2.0.5:compile
-[INFO] |  |  \- org.springframework.data:spring-data-commons:jar:3.2.1:compile
+[INFO] |  |  \- org.springframework.batch:spring-batch-infrastructure:jar:5.1.0:compile
+[INFO] |  |     \- org.springframework.retry:spring-retry:jar:2.0.5:compile
 [INFO] |  +- org.springframework.cloud:spring-cloud-task-batch:jar:3.1.0:compile
 [INFO] |  \- org.springframework.cloud:spring-cloud-task-stream:jar:3.1.0:compile
 [INFO] |     \- org.springframework.cloud:spring-cloud-deployer-spi:jar:2.9.1:compile
