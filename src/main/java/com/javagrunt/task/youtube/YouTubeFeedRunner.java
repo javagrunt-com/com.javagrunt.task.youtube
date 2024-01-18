@@ -9,6 +9,7 @@ import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.data.jdbc.core.JdbcAggregateTemplate;
@@ -23,7 +24,9 @@ import java.nio.charset.StandardCharsets;
 class YouTubeFeedRunner implements ApplicationRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(YouTubeFeedRunner.class);
-    private static final String YOUTUBE_FEED_URL = "https://www.youtube.com/feeds/videos.xml?channel_id=UCuGoHRQbVXa4LxepmPOdUfQ";
+    
+    @Value("${youtube.feed.url}")
+    private String YOUTUBE_FEED_URL;
 
     private final YouTubeVideoRepository youTubeVideoRepository;
     private final JdbcAggregateTemplate template;
@@ -38,6 +41,7 @@ class YouTubeFeedRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
+        logger.info("YouTube Feed URL: " + YOUTUBE_FEED_URL);
         try {
             String result = fetchFeedData();
             processFeed(result);
@@ -59,7 +63,7 @@ class YouTubeFeedRunner implements ApplicationRunner {
     }
 
     private void processEntry(SyndEntry entry) {
-        logger.info(entry.toString());
+        logger.debug(entry.toString());
         YouTubeVideo youTubeVideo = createNewYouTubeVideo(entry);
         saveYouTubeVideo(youTubeVideo);
     }
@@ -71,7 +75,7 @@ class YouTubeFeedRunner implements ApplicationRunner {
     private YouTubeVideo parseEntry(SyndEntry entry) {
         com.rometools.rome.feed.module.Module module = entry.getModule(MediaEntryModule.URI);
         MediaGroup[] mediaGroups = ((MediaEntryModule) module).getMediaGroups();
-        logger.info("Media Groups: " + mediaGroups.length);
+        logger.debug("Media Groups: " + mediaGroups.length);
         
         String thumbnail;
         String description;
