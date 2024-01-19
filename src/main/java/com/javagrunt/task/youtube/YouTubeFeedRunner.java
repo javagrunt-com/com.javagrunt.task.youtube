@@ -42,8 +42,6 @@ class YouTubeFeedRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         logger.info("YouTube Feed URL: " + YOUTUBE_FEED_URL);
-        logger.info("DATASOURCE_URL: " + System.getenv("DATASOURCE_URL"));
-        logger.info("DATASOURCE_USERNAME: " + System.getenv("DATASOURCE_USERNAME"));
         try {
             String result = fetchFeedData();
             processFeed(result);
