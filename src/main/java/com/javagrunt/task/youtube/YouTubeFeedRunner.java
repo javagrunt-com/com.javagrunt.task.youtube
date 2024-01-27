@@ -19,6 +19,10 @@ import org.springframework.web.client.RestClient;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Service
 class YouTubeFeedRunner implements ApplicationRunner {
@@ -86,7 +90,8 @@ class YouTubeFeedRunner implements ApplicationRunner {
             thumbnail = "";
             description = "";
         }
-        return new YouTubeVideo(entry.getUri(), entry.getLink(), description, entry.getTitle(), thumbnail, entry.getPublishedDate().toString());
+        String dateString = entry.getPublishedDate().toString();
+        return new YouTubeVideo(entry.getUri(), entry.getLink(), description, entry.getTitle(), thumbnail, dateString, parseDate(dateString) );
     }
 
     private String parseDescription(SyndEntry entry) {
@@ -95,6 +100,11 @@ class YouTubeFeedRunner implements ApplicationRunner {
         } else {
             return "";
         }
+    }
+    
+    private long parseDate(String dateString){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy");
+        return ZonedDateTime.parse(dateString, formatter).toInstant().getEpochSecond();
     }
 
     private void saveYouTubeVideo(YouTubeVideo video) {
